@@ -115,7 +115,7 @@ const displayLevelWord = (words) => {
     const card = document.createElement("div");
     card.innerHTML = `
     <div
-        class="bg-white h-full md:h-fit rounded-xl shadow-sm text-center py-16 px-5 space-y-4"
+        class="bg-white h-full xl:h-fit rounded-xl shadow-sm text-center py-16 px-5 space-y-4"
       >
         <h2 class="text-3xl font-bold">${
           word.word ? word.word : "শব্দ পাওয়া যায় নি"
@@ -167,3 +167,19 @@ const displayLessons = (lessons) => {
 };
 
 loadLessons();
+
+document.getElementById("btn-search").addEventListener("click", () => {
+  removeActive()
+  const input = document.getElementById("input-search");
+  const searchValue = input.value.trim().toLowerCase();
+
+  fetch("https://openapi.programming-hero.com/api/words/all")
+    .then((res) => res.json())
+    .then((data) => {
+      const allWords = data.data;
+      const filterWords = allWords.filter((word) =>
+        word.word.toLowerCase().includes(searchValue)
+      );
+      displayLevelWord(filterWords);
+    });
+});
