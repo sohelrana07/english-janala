@@ -107,7 +107,7 @@
 
     <!-- Hero section start here -->
     <section
-      class="flex flex-col-reverse md:flex-row justify-between gap-10 items-center py-5 w-11/12 mx-auto"
+      class="flex flex-col-reverse md:flex-row justify-between gap-10 items-center py-5 w-11/12 mx-auto mb-48"
     >
       <div class="content flex-1 text-center md:text-left">
         <h2 class="text-4xl font-bold mb-8">
@@ -149,9 +149,15 @@
       ></div>
     </section>
 
+    <!-- loading system -->
+    <section id="spinner" class="flex justify-center items-center py-14 hidden">
+      <span class="loading loading-bars loading-md"></span>
+    </section>
+
+    <!-- output word Vocabulary -->
     <section
       id="word-container"
-      class="bg-gray-100 rounded-3xl p-14 w-11/12 mx-auto my-10 grid grid-cols-3 gap-5"
+      class="bg-gray-100 rounded-2xl p-14 w-11/12 mx-auto my-10 grid grid-cols-2 xl:grid-cols-3 gap-5"
     >
       <div class="text-center col-span-full space-y-3 font-bangla">
         <p class="text-[#79716B] text-sm">
@@ -165,10 +171,10 @@
 
     <!-- Open the modal using ID.showModal() method -->
     <!-- <button class="btn" onclick="my_modal_5.showModal()">open modal</button> -->
-    <dialog id="my_modal_5" class="modal modal-bottom sm:modal-middle">
+
+    <dialog id="word-modal" class="modal modal-bottom sm:modal-middle">
       <div class="modal-box">
-        <h3 class="text-lg font-bold">Hello!</h3>
-        <p class="py-4">Press ESC key or click the button below to close</p>
+        <div id="details-container" class="space-y-5"></div>
         <div class="modal-action">
           <form method="dialog">
             <!-- if there is a button in form, it will close the modal -->
